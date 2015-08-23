@@ -1,0 +1,80 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>
+    videoauctions
+  </title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootswatch/latest/flatly/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<template name="layout">
+  <div id="content" class="sticky-wrapper">
+    <div class="navbar navbar-fixed-top navbar-default" role="navigation">
+      <div class="navbar-container container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">
+              Toggle navigation
+            </span>
+            <span class="icon-bar">
+            </span>
+            <span class="icon-bar">
+            </span>
+            <span class="icon-bar">
+            </span>
+          </button>
+          <a class="navbar-brand" href="#">
+            videoauctions
+          </a>
+        </div>
+        <div id="menu" class="collapse navbar-collapse">
+          {{> MainMenu}}
+        </div>
+      </div>
+    </div>
+    <div class="navbar-spacer">
+    </div>
+    {{> yield}}
+  </div>
+  <div id="footer" class="sticky-footer">
+    <div class="footer-container container">
+      <p class="text-muted">
+      </p>
+    </div>
+  </div>
+</template>
+
+<template name="MainMenu">
+  <ul id="menu-items" class="nav navbar-nav">
+    <li id="menu-item-simple">
+      <a href="{{pathFor 'home'}}">
+        <span class="fa fa-home">
+        </span>
+        <span class="item-title">
+          &nbsp;Home page
+        </span>
+      </a>
+    </li>
+  </ul>
+
+  <!-- right -->
+  <ul id="menu-items" class="nav navbar-nav navbar-right">
+    {{#if currentUser}}
+    <li id="menu-item-simple">
+      <a id="logout-button" href="#">
+        Logout
+      </a>
+    </li>
+    {{else}}
+    <li>
+      <a href="{{pathFor 'signIn'}}">
+        Sign in
+      </a>
+    </li>
+    <li>
+      <a href="{{pathFor 'signUp'}}">
+        Sign up
+      </a>
+    </li>
+    {{/if}}
+  </ul>
+</template>
